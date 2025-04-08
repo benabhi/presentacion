@@ -1,0 +1,79 @@
+commit 1da177e4c3f41524e886b7f1b8a0c1fc7321cac2
+Author: Linus Torvalds <torvalds@ppc970.osdl.org>
+Date:   Thu Apr 16 15:20:36 2005 -0700
+
+    Initial git repository build. I'm not bothering with the full history,
+    even though we have it. We can create a separate "historical" git
+    archive of that stuff later if we want to, and in the meantime it's about
+    3x smaller and probably covers 99.9% of the cases anyway.
+    
+    Let it rip!
+
+commit 7a2deb32924142696b8174cdf9b38cd72a11fc96
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Mon Apr 18 10:29:06 2005 -0700
+
+    An example usage of "git update"
+
+commit 69f44aabce799b41de442f2769093af16ed1ccc1
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Mon Apr 18 10:37:27 2005 -0700
+
+    Fix up trivial merge issue: use EXTRAVERSION as ".git", not "-git"
+
+commit 2aa58ea5e5c904bec0ad0e953e65acd7f5a55c97
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Mon Apr 18 16:27:25 2005 -0700
+
+    Make "git pull" more careful about when to test for remote tracking branches.
+    
+    It turns out that git will examine packs for files that don't need to
+    exist at all (think "git pull" from a repository that has some references
+    you'll never care about). Fix that.
+
+commit 89436481d1ca6812d8c330a455dda87f33b07a00
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Mon Apr 18 10:06:32 2005 -0700
+
+    Minimal merging effort: set EXTRAVERSION to "git" rather than "-bk"
+
+commit c921cebfbc8b47c78c0cf83054ca49d2c48d7f49
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Tue Apr 19 09:17:44 2005 -0700
+
+    git-update-cache: "--refresh" should consider the stat information exclusive
+    
+    Actually, it should _not_ look at the content when thinking about whether
+    the entry is up-to-date, because the content information is about the
+    _new_ file state, not the old one.
+    
+    git-update-cache would actually overwrite the content of a changed file if
+    that file happened to be the same size as the old file. Horrible.
+
+commit ecd309e0a68989cb49f448d2d4486484bd14a96c
+Author: Junio C Hamano <junkio@cox.net>
+Date:   Tue Apr 19 11:03:18 2005 -0700
+
+    update-cache --refresh: more rational handling of stat info
+    
+    When stat info is found to be different but the path has not
+    been touched by us, overwrite the stat info with "--refresh".
+    This makes status command a lot more useful.
+
+commit 1433b68725a8057f81324fbb35b3766ce88b2e0a
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Tue Apr 19 10:35:07 2005 -0700
+
+    Fix git-commit-script to follow the git-checkout-cache rules for exclusion
+
+commit acc9fcd50a67e71bba039dbcb84b64f393f707f9
+Author: Linus Torvalds <torvalds@g5.osdl.org>
+Date:   Tue Apr 19 10:58:22 2005 -0700
+
+    "git-checkout -f" should remove local modifications
+
+commit 65cc2d57cb3221352b17dc47ac39eac35b0bd414
+Author: Junio C Hamano <junkio@cox.net>
+Date:   Tue Apr 19 16:48:29 2005 -0700
+
+    Fix "git checkout -f" for unmerged path.
