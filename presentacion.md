@@ -189,6 +189,7 @@ cowsay "Un gran poder conlleva una gran responsabilidad - Tío Ben"
   - Identificador único (PID)
   - Prioridad y estado
   - Jerarquía (padre-hijo)
+  - Zombies y Demonios
 
 **Demostración**: Explorando procesos
 
@@ -395,6 +396,7 @@ Todo esto realizado directamente de la terminal sin necesidad de levantar el mou
 - Fuentes de información
     - Algo de wikipedia
     - Claude AI
+    - Gemini
     - Experiencia personal
 
 ---
