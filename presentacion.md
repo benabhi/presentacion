@@ -3,7 +3,7 @@ author: Hernán David Jalabert
 ---
 
 # Sistemas Operativos con enfoque en Linux
-## Presentación integrada teoría-práctica (15 minutos)
+## Presentación interactiva via shell de Linux. 
 
 ```
          _nnnn_                      
@@ -42,7 +42,7 @@ _)      \.___.,|     .'   |
 ## ¿Qué es un sistema operativo?
 
 - **Definición**
-- **Componentes principales**:
+- **Componentes principales**
   - Kernel
   - Interfaz con el usuario
   - Sistema de archivos
@@ -149,7 +149,13 @@ screenfetch
 
 ```
 ~~~bash
-echo -e "[ Debian ] --> [ Raspbian ]\\n[ Debian ] --> [ Ubuntu ]\\n[ Debian ] --> [ Mint ]\\n[ Ubuntu ] --> [ Pop! ]\\n[ Ubuntu ] --> [ Elementary ]\\n[ Ubuntu ] --> [ ZorinOS ]\\n[ Ubuntu ] --> [ Mint ]" | graph-easy
+echo "[ Debian ] --> [ Raspbian ]
+[ Debian ] --> [ Ubuntu ]
+[ Debian ] --> [ Mint ]
+[ Ubuntu ] --> [ Pop! ]
+[ Ubuntu ] --> [ Elementary ]
+[ Ubuntu ] --> [ ZorinOS ]
+[ Ubuntu ] --> [ Mint ]" | graph-easy
 ~~~
 ```
 
@@ -178,8 +184,8 @@ cowsay "Un gran poder conlleva una gran responsabilidad - Tío Ben"
 
 ## Gestión de procesos en Linux
 
-- **Procesos**: Programas en ejecución
-- **Características**:
+- **Procesos**
+- **Características**
   - Identificador único (PID)
   - Prioridad y estado
   - Jerarquía (padre-hijo)
@@ -193,6 +199,7 @@ ps aux
 top
 # Árbol de procesos
 pstree -Asp
+ps -ejH
 # Otra forma de mostrar procesos
 htop
 ```
@@ -217,6 +224,8 @@ htop
 kill $!
 # Verificar que se terminó
 ps -p $! || echo "Proceso terminado"
+# Ver señales
+cat /proc/1/status | grep Sig
 ```
 
 ---
@@ -229,6 +238,9 @@ ps -p $! || echo "Proceso terminado"
   - /home: Datos de usuarios
   - /var: Datos variables
   - /usr: Aplicaciones
+
+
+> *batcat ./include/folder_structure.txt --language=yml*
 
 **Demostración**: Explorando el sistema de archivos
 
@@ -253,9 +265,12 @@ df -h
 echo "Demostración Linux" > demo.txt
 # Ver sus propiedades
 ls -l demo.txt
-# Cambiar permisos
-chmod 644 demo.txt
+# Cambiar permisos (solo lectura)
+chmod 400 demo.txt
+# Ver permisos
 ls -l demo.txt
+# Verificar permisos
+echo "lalala" > demo.txt
 ```
 
 ---
@@ -263,8 +278,8 @@ ls -l demo.txt
 ## Gestión de memoria
 
 - **Memoria física y virtual**
-- **Swap**: Extensión de memoria en disco
-- **Paginación**: División de memoria en bloques
+- **Swap**
+- **Paginación**
 
 **Demostración**: Analizando el uso de memoria
 
@@ -275,6 +290,8 @@ free -m
 ps aux --sort=-%mem | head -5
 # Estado de swap
 swapon --show
+# Memoria virtual
+vmstat
 ```
 
 ---
@@ -304,10 +321,10 @@ su - usario_demo
 
 ## Permisos y seguridad
 
-- **Modelo de permisos**:
-  - r: Lectura (4)
-  - w: Escritura (2)
-  - x: Ejecución (1)
+- **Modelo de permisos**
+  - r: Lectura 
+  - w: Escritura 
+  - x: Ejecución
 - **Propietario, grupo, otros**
 
 **Demostración**: Compartir archivos entre usuarios
@@ -344,29 +361,17 @@ lspci | head
 
 ## Conclusiones
 
+- Sistema Operativo
+    - `Un sistema operativo es como el sistema circulatorio de tu computadora. Distribuye recursos vitales (como memoria y tiempo de procesador) donde se necesitan, conecta todas las partes del cuerpo tecnológico y mantiene un flujo constante de información entre el hardware, los programas y el usuario.`
 - **Linux**: Sistema potente, flexible y transparente
-- **Ventajas principales**:
-  - Control total del sistema
-  - Seguridad y estabilidad
-  - Personalización
-  - Gran comunidad
+    - **Ventajas principales**
+    - Control total del sistema
+    - Seguridad y estabilidad
+    - Personalización
+    - Gran comunidad
 
-**Demostración final**: Carga del sistema
 
-```bash
-# Estadística general
-vmstat 1 3
-# Carga del sistema
-cat /proc/loadavg
-```
-
----
-
-## ¿Preguntas?
-
-```bash
-echo "¡Gracias por su atención!"
-```
+> *En un mundo donde la tecnología tiende a encerrarnos, Linux nos recuerda que la verdadera innovación nace de la colaboración y la libertad."* - Linus Torvalds
 
 ---
 
@@ -377,3 +382,27 @@ Para mostrar este slide se trabajo con `slides` (https://github.com/maaslalani/s
 ```bash
 batcat "./presentation.md"
 ```
+
+Todo esto realizado directamente de la terminal sin necesidad de levantar el mouse, por eso los desarrolladores ❤  la terminal, almenos hasta que la IA haga todo por nosotros en un futuro cada dia mas cercano.
+
+- Herramientas
+    - Shell
+    - slides (aplicacion de diapositivas por linea de comandos)
+    - Vim (Editor de textos para terminal)
+    - easy-graph (Libreria escrita en perl para la generacion de diagramas ASCII)
+    - WSL (Windows Linux Subsystem)
+    - Ubuntu 24.04 Server 
+- Fuentes de información
+    - Algo de wikipedia
+    - Claude AI
+    - Experiencia personal
+
+---
+
+## ¿Preguntas?
+
+```bash
+echo "¡Gracias por su atención!"
+```
+
+

@@ -1,0 +1,37 @@
+/ (raíz)
+├── bin/         # Binarios esenciales del sistema
+├── boot/        # Archivos de arranque, kernel, grub
+│   └── grub/
+├── dev/         # Dispositivos (hardware como disco, teclado)
+├── etc/         # Archivos de configuración del sistema
+│   ├── network/
+│   ├── ssh/
+│   └── passwd
+├── home/        # Directorios personales de usuarios
+│   ├── usuario1/
+│   └── usuario2/
+├── lib/         # Bibliotecas compartidas esenciales
+├── lib64/       # Bibliotecas de 64 bits
+├── media/       # Punto de montaje para dispositivos extraíbles
+├── mnt/         # Punto de montaje temporal
+├── opt/         # Software adicional
+├── proc/        # Sistema de archivos virtual (procesos)
+├── root/        # Directorio personal del superusuario
+├── run/         # Datos de tiempo de ejecución
+├── sbin/        # Binarios del sistema para administración
+├── srv/         # Datos para servicios del sistema
+├── sys/         # Sistema de archivos virtual (kernel y hardware)
+├── tmp/         # Archivos temporales
+├── usr/         # Programas y datos de usuarios
+│   ├── bin/     # Comandos de usuario
+│   ├── include/ # Archivos de cabecera
+│   ├── lib/     # Bibliotecas 
+│   ├── local/   # Software instalado localmente
+│   ├── sbin/    # Comandos de administración
+│   └── share/   # Datos independientes de arquitectura
+└── var/         # Datos variables
+    ├── cache/   # Datos de caché de aplicaciones
+    ├── log/     # Archivos de registro
+    ├── mail/    # Buzones de correo
+    ├── spool/   # Colas de impresión, correo, etc.
+    └── www/     # Archivos de servidores web
